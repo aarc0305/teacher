@@ -1,0 +1,77 @@
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="page-heading">
+                    <h1>Discussion</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{article.title}}</h2>
+
+              </div>
+              <div class="panel-body">
+                <p>{{article.content}}</p>
+                <hr>
+                <h5 style="text-align:right;">published at {{article.createdYear}}/{{article.createdMonth}}/{{article.createdDate}} {{article.createdDay}}</h5>
+              </div>
+        </div>
+        <hr>
+</div>
+
+<form action="/comment_create" method="post">
+    <div class="form-group">
+      <h4>Leave a Meassage</h4>
+      <textarea class="form-control" name="content_of_comment" rows="5" id="content_of_comment"></textarea>
+      <input type="hidden" name="article_id" value={{article._id}}>
+      <input type="hidden" name="user_of_comment" value={{userNam.email}}>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</form>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Messages</h3>
+          <hr size=1>
+          {{# each comments}}
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              {{#if this.user_of_comment}}
+                <h4>{{this.user_of_comment}}</h4>
+              {{else}}
+                <h4>Anonymous User</h4>
+              {{/if}}
+            </div>
+            <div class="panel-body">
+              <p>{{this.content_of_comment}}</p>
+            </div>    
+          </div>    
+          {{/each}}
+      </div>    
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>

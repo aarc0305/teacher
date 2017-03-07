@@ -1,0 +1,72 @@
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="page-heading">
+                    <h1>Discussion</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <a href="/discussion_new" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Publish </a>
+    <hr size=1>
+    {{# each articles}}
+        <div class="row">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{this.title}} <h5 style="text-align:right;">{{this.createdYear}}/{{this.createdMonth}}/{{this.createdDate}} on {{this.createdDay}}</h5></h2>
+
+              </div>
+              <div class="panel-body">
+                <p>{{this.content}}</p>
+              </div>
+              <a href="/discussion/{{this._id}}" class="btn btn-default">read it</a>
+            </div>  
+        </div>
+        <hr>
+    {{/each}}
+    
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
